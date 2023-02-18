@@ -84,4 +84,22 @@ color: #637182;
     padding: 0;
 }
 .subTotal {
-    color: #0097C2;}
+    color: #0097C2;
+}
+
+.status_container {
+    height: 24px;
+width: 24px;
+background-color: rgba(239, 82, 97, .1) ;
+margin-left: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.status_content{
+    height: 12px;
+width: 12px;
+border-radius: 50%;
+background-color: rgba(239, 82, 97, 1);
+
+}

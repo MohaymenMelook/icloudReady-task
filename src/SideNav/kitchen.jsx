@@ -6,12 +6,8 @@ import cart_img from "../image/cart@3x.png";
 import "./SideNav.css";
 import Navbar from "../Navbar/Navbar";
 import cloud from "../image/cloud.png";
-import { Row, Popconfirm, Divider, Col, Button, Alert, Space } from "antd";
-import {
-  CloseCircleOutlined,
-  CaretUpFilled,
-  CaretDownFilled,
-} from "@ant-design/icons";
+import { Row, Popconfirm, Divider, Col, Button, Alert } from "antd";
+import { CloseCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 export default function Kitchen() {
@@ -30,20 +26,6 @@ export default function Kitchen() {
   const deleteProduct = (key) => {
     const newkitchen = kitchen.filter((product) => product.key !== key);
     setKitchen(newkitchen);
-  };
-
-  const increment = (product) => {
-    product.quantity += 1;
-    setKitchen([...kitchen]);
-  };
-  const decrement = (product) => {
-    product.quantity -= 1;
-    if (product.quantity === 0) {
-      const newkitchen = kitchen.filter((item) => item.key !== product.key);
-      setKitchen([...newkitchen]);
-    } else {
-      setKitchen([...kitchen]);
-    }
   };
 
   const empty_kitchen = (
@@ -86,26 +68,10 @@ export default function Kitchen() {
               </div>
             </Col>
             <Col md={{ span: 4 }}>
-              <Row className="quantity">
-                <Col md={{ span: 8 }}>{product.quantity}</Col>
-                <Col md={{ span: 8 }}>
-                  <span>
-                    <CaretUpFilled
-                      style={{ cursor: "pointer" }}
-                      onClick={() => {
-                        increment(product);
-                      }}
-                    />
-                  </span>
-                  <span>
-                    <CaretDownFilled
-                      style={{ cursor: "pointer" }}
-                      onClick={() => {
-                        decrement(product);
-                      }}
-                    />
-                  </span>
-                </Col>
+              <Row className="status">
+                <div className="status_container">
+                  <div className="status_content"></div>
+                </div>
               </Row>
             </Col>
             <Col md={{ span: 4 }}>
